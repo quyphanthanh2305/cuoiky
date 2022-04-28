@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <script src="./JS/bootstrap.min.js"></script>
+    <script src="./JS/jquery-3.3.1.min.js"></script>
+    <script src="./JS/index.js"></script>
+    <script>
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $("#image").attr("src", e.target.result);
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-xs-12">
+            <img src="./img/paner.jpg" alt="" width="100%">
+        </div>
+        <div class="col-xs-12">
+            <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
+                <ul class="navbar nav">
+                    <li class="navbar-item"><a href="#" class="navbar-link" style="margin-right: 20px;" id="btn1">Đăng
+                            nhập</a></li>
+                    <li class="navbar-item"><a href="#" class="navbar-link" id="btn2">Đăng ký</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-xs-12">
+            <h4 style="text-align: center;">DANH SÁCH ĐỘI TUYỂN VIỆT NAM</h4>
+            <table class="table table-striped" role="table" id="Danhsach">
+                <tr>
+                    <th>STT</th>
+                    <th>Họ tên</th>
+                    <th>Số áo</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày tập trung</th>
+                    <th>Điện thoại</th>
+                    <th>Ảnh đại diện</th>
+                </tr>
+            </table>
+        </div>
+        <div class="modal fade" role="dialog" id="myModal">
+            <div class="modal-dialog " style="margin-top: 10px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="text-left">THÔNG TIN CÁ NHÂN</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" class="form-horizontal" style="margin-top: 10px;">
+                            <label for="Name" class="control-lable col-xs-3">Họ tên</label>
+                            <div class="col-xs-9">
+                                <input type="text" id="Name" class="form-control">
+                                <span class="text-danger" id="tbName">*</span>
+                            </div>
+                            <label for="Ao" class="control-lable col-xs-3">Số áo</label>
+                            <div class="col-xs-9" style="margin-bottom: 10px;">
+                                <input type="text" id="Ao" class="form-control">
+                                <span class="text-danger" style="color: red;" id="tbAo">*</span>
+                            </div>
+                            <label for="DC" class="control-lable col-xs-3">Địa chỉ</label>
+                            <div class="col-xs-9">
+                                <input type="text" id="DC" class="form-control">
+                                <span class="text-danger" style="color: red;" id="tbDC">*</span>
+                            </div>
+                            <label for="NTT" class="control-lable col-xs-3">Ngày tập trung</label>
+                            <div class="col-xs-9">
+                                <input type="date" id="NTT" class="form-control">
+                                <span class="text-danger" style="color: red;" id="tbNTT">*</span>
+                            </div>
+                            <label for="SDT" class="control-lable col-xs-3">Số điện thoại</label>
+                            <div class="col-xs-9">
+                                <input type="tel" id="SDT" class="form-control">
+                                <span class="text-danger" style="color: red;" id="tbSDT">*</span>
+                            </div>
+                            <label for="ADD" class="control-lable col-xs-3">Ảnh đại diện</label>
+                            <div class="col-xs-9">
+                                <img src="" alt="" id="image" width="200" height="200">
+                                <input type="file" id="ADD" class="form-control" accept="image/gif, image/jpeg, image/png" onchange="chooseFile(this)">
+                                <span class="text-danger" style="color: red;" id="tbAdd">*</span>
+                            </div>
+                            <button class="btn btn-success btn-group-justified" id="Save" type="button" style="color:white; background-color: green; width: 100%;">
+                          ĐĂNG KÝ
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="col-xs-12">
+            <p style="text-align: center;">19509071- Lê Dương Thị Thu Hoài</p>
+        </div>
+    </footer>
+</body>
+
+</html>
